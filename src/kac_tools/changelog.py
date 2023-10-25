@@ -21,8 +21,8 @@ class Section:
 
     def __repr__(self) -> str:
         if self.date:
-            return f"{self.title} - {self.date}\n{self.content}"
-        return f"{self.title}\n{self.content}"
+            return f"## {self.title} - {self.date}\n{self.content}"
+        return f"## {self.title}\n{self.content}"
 
     def to_json(self) -> str:
         """Read content section in json format

@@ -1,6 +1,6 @@
 """CLI Tool that distributes subcommands"""
 import argparse
-from keepachangelog_tools.changelog import Changelog
+from kac_tools.changelog import Changelog
 
 
 def parse_changelog(args):

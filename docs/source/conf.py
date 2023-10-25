@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../src/'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'keepachangelog-tools'
+project = 'kac-tools'
 copyright = '2023, Elias Rosch'
 author = 'Elias Rosch'
 

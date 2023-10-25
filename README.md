@@ -1,5 +1,5 @@
-# keepachangelog-tools
-`keepachangelog-tools` is a CLI python tool which parses CHANGELOG.md (in the keep-a-changelog format).
+# kac-tools
+`kac-tools` is a CLI python tool which parses CHANGELOG.md (in the keep-a-changelog format).
 It can be used to extract only specific sections.
 
 ## Installation
@@ -7,7 +7,7 @@ It can be used to extract only specific sections.
 The latest release is available in the public PyPi repo. 
 Install via pip:
 ```
-pip install keepachangelog-tools
+pip install kac-tools
 ```
 
 ### From git repo
@@ -31,7 +31,7 @@ pip install .
 
 ## Usage
 ```
-usage: keepachangelog-tools [-h] [-c CHANGELOG_FILE] [-s SECTION]
+usage: kac-tools [-h] [-c CHANGELOG_FILE] [-s SECTION]
 
 options:
   -h, --help            show this help message and exit

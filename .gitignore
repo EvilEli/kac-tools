@@ -1,2 +1,3 @@
 **/__pycache__/*
 */keepachangelog_tools.egg-info
+.coverage

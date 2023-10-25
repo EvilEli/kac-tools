@@ -1,13 +1,5 @@
-import re
 from pathlib import PurePath
 from collections import OrderedDict
-
-RE_SECTION_PREFIX = r"## "
-RE_SECTION_HEADER_PART = r"([^\[\]\s]+)"
-RE_SECTION_CONTENT = r"([\s\S]+?)"
-RE_ABSOLUTE_END_STRING = r"\Z"
-
-RE_SECTION = f"{RE_SECTION_PREFIX}\[?{RE_SECTION_HEADER_PART} - {RE_SECTION_HEADER_PART}\]?.*${RE_SECTION_CONTENT}(?=(^{RE_SECTION_PREFIX})|({RE_ABSOLUTE_END_STRING}))"
 
 
 class Section:
@@ -17,7 +9,9 @@ class Section:
         self.content = content
 
     def __repr__(self) -> str:
-        return f"{self.title} - {self.date}\n{self.content}"
+        if self.date:
+            return f"{self.title} - {self.date}\n{self.content}"
+        return f"{self.title}\n{self.content}"
 
 
 class Changelog:
@@ -28,9 +22,11 @@ class Changelog:
 
     def __getitem__(self, title):
         if title == "latest":
-            return next(iter(self.sections.values()))
+            return next(x for x in self.sections.values() if x.title != "Unreleased")
+
         if title not in self.sections:
             return None
+
         return self.sections[title]
 
     def read_content(self):
@@ -39,14 +35,13 @@ class Changelog:
         return content
 
     def parse_sections(self):
-        section_capture_list = re.findall(
-            RE_SECTION,
-            self.content,
-            re.MULTILINE,
-        )
-        return OrderedDict(
-            [
-                (title, Section(title, date, content))
-                for title, date, content, _, _ in section_capture_list
-            ]
-        )
+        section_dict = OrderedDict()
+        section_list = self.content.split("\n## ")
+        for sec in section_list[1:]:
+            title, content = sec.split("\n", 1)
+            if " - " in title:
+                title, date = title.split(" - ")
+            else:
+                date = None
+            section_dict[title] = Section(title, date, content)
+        return section_dict

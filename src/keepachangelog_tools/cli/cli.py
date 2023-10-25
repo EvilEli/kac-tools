@@ -4,6 +4,7 @@ from keepachangelog_tools.changelog import Changelog
 
 
 def parse_changelog(args):
+    """Builds Changelog model from provided file and prints requested section."""
     changelog = Changelog(args.changelog_file)
     print(changelog[args.section])
 

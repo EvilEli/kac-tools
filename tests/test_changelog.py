@@ -1,7 +1,7 @@
 """Contains tests for MotionHandler class"""
 import pytest
 import os
-from keepachangelog_tools.changelog import Changelog
+from kac_tools.changelog import Changelog
 from pathlib import PurePath
 
 @pytest.fixture()

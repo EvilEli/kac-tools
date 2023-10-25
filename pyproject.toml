@@ -3,7 +3,7 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "keepachangelog-tools"
+name = "kac-tools"
 description = "Python CLI tool to parse keep-a-changelog formatted files and extract parts."
 readme = {file = "README.md", content-type = "text/markdown"}
 authors = [
@@ -21,12 +21,12 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://gitlab.com/EvilEli/keepachangelog-tools"
-Documentation = "https://gitlab.com/EvilEli/keepachangelog-tools"
-Repository = "https://gitlab.com/EvilEli/keepachangelog-tools.git"
-Changelog = "https://gitlab.com/EvilEli/keepachangelog-tools"
+Homepage = "https://gitlab.com/EvilEli/kac-tools"
+Documentation = "https://gitlab.com/EvilEli/kac-tools"
+Repository = "https://gitlab.com/EvilEli/kac-tools.git"
+Changelog = "https://gitlab.com/EvilEli/kac-tools"
 
 [project.scripts]
-keepachangelog-tools = "keepachangelog_tools.cli.cli:main"
+kac-tools = "kac_tools.cli.cli:main"
 
 [tool.setuptools_scm]

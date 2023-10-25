@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kac-parser"
+description = "Python CLI tool to parse keep-a-changelog formatted files and extract parts."
+readme = {file = "README.md", content-type = "text/markdown"}
+authors = [
+    {name = "Elias Rosch", email = "eliasrosch@googlemail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["version"]
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/EvilEli/kac-parser"
+Documentation = "https://gitlab.com/EvilEli/kac-parser"
+Repository = "https://gitlab.com/EvilEli/kac-parser.git"
+Changelog = "https://gitlab.com/EvilEli/kac-parser"
+
+[project.scripts]
+kac-parser = "kac_parser.cli.cli:main"
+
+[tool.setuptools_scm]

@@ -3,17 +3,10 @@ from collections import OrderedDict
 
 
 class Section:
-    def __init__(self, section_string: str):
-            section_split = section_string.split("\n", 1)
-            if len(section_split) == 2:
-                self.title, self.content = section_split
-            else:
-                self.title = section_split[0]
-
-            if " - " in self.title:
-                self.title, self.date = self.title.split(" - ")
-            else:
-                self.date = None
+    def __init__(self, title: str, date: str, content: str):
+        self.title = title
+        self.date = date
+        self.content = content
 
     def __repr__(self) -> str:
         if self.date:
@@ -43,8 +36,12 @@ class Changelog:
 
     def parse_sections(self):
         section_dict = OrderedDict()
-        section_string_list = self.content.split("\n## ")
-        for section_string in section_string_list[1:]:
-            section = Section(section_string)
-            section_dict[section.title] = section
+        section_list = self.content.split("\n## ")
+        for sec in section_list[1:]:
+            title, content = sec.split("\n", 1)
+            if " - " in title:
+                title, date = title.split(" - ")
+            else:
+                date = None
+            section_dict[title] = Section(title, date, content)
         return section_dict

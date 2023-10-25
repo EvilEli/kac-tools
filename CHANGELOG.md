@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## v0.3.0 - 25.10.23
+### Added
+- [Minor] Proper release notes in CI/CD pipeline.
+
 ## v0.2.0 - 25.10.23
 ### Added
 - [Minor] CI/CD Pipeline.
